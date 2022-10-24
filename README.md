@@ -4,4 +4,4 @@ This repository contains all the materials to build the mouse reaching task and 
 - 3D models for the components of the box
 - Schematics for the reaching box Arduino-based controller
 - Scripts to run the video recording from the FLIR Camera and logging the data from Arduino
-- Scripts for the full analysis dataflow
+- Scripts for the full analysis dataflow: detecting body parts with DLC and getting the reaching trajectories
