@@ -1,5 +1,6 @@
 #PROGRAM FOR MANUALLY CHOOSING THE VALID REACHES FOR ANALYSIS
-
+# Input - csv file from Anipose
+# Output - h5 file containing the Table with the parameters needed for tracking (X,Y,Z) and added parameters like velocity and acceleration + list of all reaches chosen 
 
 import numpy as np
 import pandas as pd
@@ -29,8 +30,8 @@ class TrackingViewer:
 
 
         # make the table with all parameters
-        self.table = pd.read_csv(self.name, header=0, usecols=[24,25,26,27,29])
-        self.table['dx'] = self.table['paw_x'] - self.table['paw_x'].shift(1)                 #need to substract absolute values
+        self.table = pd.read_csv(self.name, header=0, usecols=[12,13,14,15,16])               # choose particular columns from the original dataframe
+        self.table['dx'] = self.table['paw_x'] - self.table['paw_x'].shift(1)                 # need to substract absolute values
         self.table['dy'] = self.table['paw_y'] - self.table['paw_y'].shift(1)
         self.table['dz'] = self.table['paw_z'] - self.table['paw_z'].shift(1)
         self.table['dE'] = np.linalg.norm(self.table[['dx','dy','dz']].values, axis=1)
@@ -60,7 +61,7 @@ class TrackingViewer:
         self.ax2.set_title('X, mm')
         self.ax3.set_title('Y, mm')
         self.ax3.yaxis.tick_right()
-        self.ax.invert_zaxis()
+        #self.ax.invert_zaxis()
         #ax.set_xlim(1.5,8)
         #ax.set_ylim(210,215)
         #ax.set_zlim(-2,6)
@@ -72,13 +73,15 @@ class TrackingViewer:
         x = self.table_plot['paw_x']
         z = self.table_plot['paw_z']
         y = self.table_plot['paw_y']
-        y2 = self.table_plot['paw_x']
-        y3 = self.table_plot['paw_z']
+        x2 = self.table_plot['paw_x']
+        y2 = self.table_plot['paw_y']
 
-        plt1 = self.ax.scatter(x,z,y, s=50 , c=self.table_plot['velocity'])
-        plt2 = self.ax.plot(x,z,y, linewidth=2, color='blue', label='open')
-        plt3 = self.ax2.plot(y2)
-        plt3 = self.ax3.plot(y3) 
+        plt1 = self.ax.scatter(x,y,z, s=50 , c=self.table_plot['velocity'])
+        plt2 = self.ax.plot(x,y,z, linewidth=2, color='blue', label='open')
+        dot_start = self.ax.scatter(-7,0,0, s=200, c='b', alpha=0.5)
+        dot_pellet = self.ax.scatter(0,0,0, s=600, c='r', alpha=0.5)
+        plt3 = self.ax2.plot(x2)
+        plt3 = self.ax3.plot(y2) 
 
         self.slide = Slider(ax_sl, 'frames', 0, last_epoch, valinit=0, valfmt='%.0f')
         self.button = Button(ax_bt, 'Save_all',color="green")
@@ -86,6 +89,9 @@ class TrackingViewer:
         self.span = SpanSelector(self.ax2, self.on_select, 'horizontal', useblit=True,
                         rectprops=dict(alpha=0.5, facecolor='red'))
         self.span.set_visible(True)
+        self.span2 = SpanSelector(self.ax3, self.on_select, 'horizontal', useblit=True,
+                        rectprops=dict(alpha=0.5, facecolor='red'))
+        self.span2.set_visible(True)
         self.slide.on_changed(self.update)
         self.button.on_clicked(self.save)
         self.button2.on_clicked(self.save_select)
@@ -110,8 +116,8 @@ class TrackingViewer:
         x = self.table_plot['paw_x']
         z = self.table_plot['paw_z']
         y = self.table_plot['paw_y']
-        y2 = self.table_plot['paw_x']
-        y3 = self.table_plot['paw_z']
+        x2 = self.table_plot['paw_x']
+        y2 = self.table_plot['paw_y']
         
         self.ax.clear()
         self.ax2.clear()
@@ -122,15 +128,20 @@ class TrackingViewer:
         self.ax.set_title(self.name[-10:-4] + ' frames: ' + str(self.start) + '-' + str(self.stop))
         self.ax2.set_title('X, mm')
         self.ax3.set_title('Y, mm')
-        self.ax.invert_zaxis()
-        plt1 = self.ax.scatter(x,z,y, s=50 , c=self.table_plot['velocity'])
-        plt2 = self.ax.plot(x,z,y, linewidth=2, color='blue', label='open')
-        plt3 = self.ax2.plot(y2)   
-        plt3 = self.ax3.plot(y3) 
+        #self.ax.invert_zaxis()
+        plt1 = self.ax.scatter(x,y,z, s=50 , c=self.table_plot['velocity'])
+        plt2 = self.ax.plot(x,y,z, linewidth=2, color='blue', label='open')
+        dot_start = self.ax.scatter(-7,0,0, s=200, c='b', alpha=0.5)
+        dot_pellet = self.ax.scatter(0,0,0, s=600, c='r', alpha=0.5)
+        plt3 = self.ax2.plot(x2)   
+        plt3 = self.ax3.plot(y2) 
         
         self.span = SpanSelector(self.ax2, self.on_select, 'horizontal', useblit=True,
                         rectprops=dict(alpha=0.5, facecolor='red'))
         self.span.set_visible(True)
+        self.span2 = SpanSelector(self.ax3, self.on_select, 'horizontal', useblit=True,
+                        rectprops=dict(alpha=0.5, facecolor='red'))
+        self.span2.set_visible(True)
 
         
     def on_select(self, min: float, max: float):   
@@ -145,9 +156,11 @@ class TrackingViewer:
         self.ax.set_xlabel('X, mm')
         self.ax.set_ylabel('Y, mm')
         self.ax.set_zlabel('Z, mm')
-        self.ax.invert_zaxis()
-        plt1 = self.ax.scatter(x,z,y, s=50 , c=self.table_plot['time'])
-        plt2 = self.ax.plot(x,z,y, linewidth=2, color='blue', label='open')
+        #self.ax.invert_zaxis()
+        plt1 = self.ax.scatter(x,y,z, s=50 , c=self.table_plot['time'])
+        plt2 = self.ax.plot(x,y,z, linewidth=2, color='blue', label='open')
+        dot_start = self.ax.scatter(-7,0,0, s=200, c='b', alpha=0.5)
+        dot_pellet = self.ax.scatter(0,0,0, s=600, c='r', alpha=0.5)
         
     def save_select(self, event):
 

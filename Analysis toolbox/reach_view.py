@@ -62,13 +62,14 @@ class TimeSeriesViewer:
         self.reach_list_df=pd.read_hdf(file, key='reaches')
         self.reach_all=[]
 
-        # selecting and aligning reaches based on entered positions and 
+        # selecting and aligning reaches based on positions entered during tracking_split and saved in the h5 file 
         for row in self.reach_list_df.iterrows():
             start = row[1]['start']
             end = row[1]['stop']
             temp_table = self.table[start:end]
-            peaks,_ = find_peaks(temp_table.jerk, height=0)
-            self.reach_all.append(temp_table.iloc[peaks[0]:])
+            self.reach_all.append(temp_table)
+            #peaks,_ = find_peaks(temp_table.jerk, height=0)             # the following two lines align the reaches using the jerk peaks
+            #self.reach_all.append(temp_table.iloc[peaks[0]:])
     
         # list the options for the plot
         self.checked_list.options = self.mean_df.group.unique()
@@ -83,7 +84,7 @@ class TimeSeriesViewer:
         
         # plot series depending on the choice
         
-        if unique_groups == 'Speed, Acceleration, Jerk':
+        if unique_groups == 'Speed, Acceleration, Jerk':                #plot layout to see the displacement and its 3 derivatives
             fig = plt.figure(figsize=(10,10))
             gs = gridspec.GridSpec(2, 2, height_ratios=[1, 1])
             ax = fig.add_subplot(gs[0,0])
@@ -98,12 +99,12 @@ class TimeSeriesViewer:
             sizes=[reach_chosen[a].shape[0] for a in range(len(reach_chosen))]  #
             max_index =  sizes.index(max(sizes))        # sizes table contains the length of all reaches
 
-            dE = pd.DataFrame(reach_chosen[max_index]['dE'].reset_index(drop=True).rename(max_index))
-            vel = pd.DataFrame(reach_chosen[max_index]['velocity'].reset_index(drop=True).rename(max_index))
+            dE = pd.DataFrame(reach_chosen[max_index]['dE'].reset_index(drop=True).rename(max_index))              #make dataframes for every parameter to plot/analyze
+            vel = pd.DataFrame(reach_chosen[max_index]['velocity'].reset_index(drop=True).rename(max_index))        # if you need to work with the data - export these tables
             acc = pd.DataFrame(reach_chosen[max_index]['acceleration'].reset_index(drop=True).rename(max_index))
             jrk = pd.DataFrame(reach_chosen[max_index]['jerk'].reset_index(drop=True).rename(max_index))
 
-            for i in range(len(reach_chosen)):
+            for i in range(len(reach_chosen)):                                  # iteratively plot data for every reach and then the mean data in red
                 
                 e = reach_chosen[i]['dE'].reset_index(drop=True).rename(i)
                 v = reach_chosen[i]['velocity'].reset_index(drop=True).rename(i)
@@ -132,8 +133,8 @@ class TimeSeriesViewer:
             ax4.yaxis.tick_right()
             ax4.yaxis.set_label_position("right")
             
-        elif unique_groups == 'All projections':
-            number = len(reach_chosen) # type in the number of reaches, for maximum type len(reach_chosen)
+        elif unique_groups == 'All projections':                        #plot layout to see the coordinate change in all projections + 3d
+            number = len(reach_chosen)                                  # type in the number of reaches, for maximum type len(reach_chosen)
             fig = plt.figure(figsize=(10,10))
             gs = gridspec.GridSpec(2, 2, height_ratios=[1, 1])
             ax = fig.add_subplot(gs[0,0], projection='3d')
@@ -149,43 +150,42 @@ class TimeSeriesViewer:
             ax.set_title('3D view')         
             ax.xaxis.set_major_formatter(FormatStrFormatter('%.0f'))
             #ax.invert_zaxis()
+            #ax2.invert_yaxis()
+            #ax4.invert_yaxis()
             ax2.set_title('Forward motion')
             ax3.set_title('Sideward motion')
             ax4.set_title('Upward motion')
             sizes=[reach_chosen[a].shape[0] for a in range(number)]
             max_index =  sizes.index(max(sizes))    # sizes table contains the length of all reaches
-            dX = pd.DataFrame(reach_chosen[max_index]['paw_x'].reset_index(drop=True).rename(max_index))
-            dZ = pd.DataFrame(reach_chosen[max_index]['paw_y'].reset_index(drop=True).rename(max_index))
-            dY = pd.DataFrame(reach_chosen[max_index]['paw_z'].reset_index(drop=True).rename(max_index))
+            dX = pd.DataFrame(reach_chosen[max_index]['paw_x'].reset_index(drop=True).rename(max_index))        #make dataframes for every parameter to plot/analyze
+            dY = pd.DataFrame(reach_chosen[max_index]['paw_y'].reset_index(drop=True).rename(max_index))
+            dZ = pd.DataFrame(reach_chosen[max_index]['paw_z'].reset_index(drop=True).rename(max_index))
 
 
-
-            for i in range(number):
+            for i in range(number):                                      # iteratively plot data for every reach and then the mean data in red
                 
                 x = reach_chosen[i]['paw_x'].reset_index(drop=True).rename(i)
-                z = reach_chosen[i]['paw_y'].reset_index(drop=True).rename(i)
-                y = reach_chosen[i]['paw_z'].reset_index(drop=True).rename(i)
+                y = reach_chosen[i]['paw_y'].reset_index(drop=True).rename(i)
+                z = reach_chosen[i]['paw_z'].reset_index(drop=True).rename(i)                
                 
                 
-                
-                plt1 = ax.plot(x,z,y, linewidth=1, color='grey', label='open')
+                plt1 = ax.plot(x,y,z, linewidth=1, color='grey', label='open')
                 plt2 = ax2.plot(x, color='grey')
-                plt3 = ax3.plot(z, color='grey') 
-                plt4 = ax4.plot(y, color='grey')
+                plt3 = ax3.plot(y, color='grey') 
+                plt4 = ax4.plot(z, color='grey')
                 
 
                 if not i == max_index: 
                     
                     dX=pd.merge(dX,x, how='left', left_index=True, right_index=True)
-                    dZ=pd.merge(dZ,z, how='left', left_index=True, right_index=True)
                     dY=pd.merge(dY,y, how='left', left_index=True, right_index=True)
-
+                    dZ=pd.merge(dZ,z, how='left', left_index=True, right_index=True)
                 
 
-            plt1 = ax.plot(dX.mean(axis=1),dZ.mean(axis=1),dY.mean(axis=1), color='red', label='open', linewidth=4)
+            plt1 = ax.plot(dX.mean(axis=1),dY.mean(axis=1),dZ.mean(axis=1), color='red', label='open', linewidth=4)
             plt2 = ax2.plot(dX.mean(axis=1), color='red', linewidth=4)
-            plt3 = ax3.plot(dZ.mean(axis=1), color='red', linewidth=4) 
-            plt4 = ax4.plot(dY.mean(axis=1), color='red', linewidth=4)
+            plt3 = ax3.plot(dY.mean(axis=1), color='red', linewidth=4) 
+            plt4 = ax4.plot(dZ.mean(axis=1), color='red', linewidth=4)
             
             
             ax2.yaxis.tick_right()
@@ -194,7 +194,7 @@ class TimeSeriesViewer:
             ax4.yaxis.set_label_position("right")
 
             
-        elif unique_groups == 'dX, dY, dZ': 
+        elif unique_groups == 'dX, dY, dZ':                         #plot layout to see the frame by frame displacement in all projections 
             fig = plt.figure(figsize=(10,10))
             gs = gridspec.GridSpec(2, 2, height_ratios=[1, 1])
             ax = fig.add_subplot(gs[0,0])
@@ -207,16 +207,16 @@ class TimeSeriesViewer:
             ax4.set_ylabel('dz, mm')
             sizes=[reach_chosen[a].shape[0] for a in range(len(reach_chosen))]
             max_index =  sizes.index(max(sizes))        # sizes table contains the length of all reaches
-            dE = pd.DataFrame(reach_chosen[max_index]['dE'].reset_index(drop=True).rename(max_index))
+            dE = pd.DataFrame(reach_chosen[max_index]['dE'].reset_index(drop=True).rename(max_index))       #make dataframes for every parameter to plot/analyze
             dX = pd.DataFrame(reach_chosen[max_index]['dx'].reset_index(drop=True).rename(max_index))
-            dZ = pd.DataFrame(reach_chosen[max_index]['dy'].reset_index(drop=True).rename(max_index))
-            dY = pd.DataFrame(reach_chosen[max_index]['dz'].reset_index(drop=True).rename(max_index))
+            dZ = pd.DataFrame(reach_chosen[max_index]['dz'].reset_index(drop=True).rename(max_index))
+            dY = pd.DataFrame(reach_chosen[max_index]['dy'].reset_index(drop=True).rename(max_index))
 
-            for i in range(len(reach_chosen)):
+            for i in range(len(reach_chosen)):                                   # iteratively plot data for every reach and then the mean data in red
                 e = reach_chosen[i]['dE'].reset_index(drop=True).rename(i)
                 x = reach_chosen[i]['dx'].reset_index(drop=True).rename(i)
-                z = reach_chosen[i]['dy'].reset_index(drop=True).rename(i)
-                y = reach_chosen[i]['dz'].reset_index(drop=True).rename(i)
+                z = reach_chosen[i]['dz'].reset_index(drop=True).rename(i)
+                y = reach_chosen[i]['dy'].reset_index(drop=True).rename(i)
                 if not i == max_index: 
                     dE=pd.merge(dE,e, how='left', left_index=True, right_index=True)
                     dX=pd.merge(dX,x, how='left', left_index=True, right_index=True)
@@ -225,13 +225,13 @@ class TimeSeriesViewer:
                 
                 plt1 = ax.plot(e, color='grey')
                 plt2 = ax2.plot(x, color='grey')
-                plt3 = ax3.plot(z, color='grey') 
-                plt4 = ax4.plot(y, color='grey')    
+                plt3 = ax3.plot(y, color='grey') 
+                plt4 = ax4.plot(z, color='grey')    
 
             plt1 = ax.plot(dE.mean(axis=1), color='red', linewidth=4)
             plt2 = ax2.plot(dX.mean(axis=1), color='red', linewidth=4)
-            plt3 = ax3.plot(dZ.mean(axis=1), color='red', linewidth=4) 
-            plt4 = ax4.plot(dY.mean(axis=1), color='red', linewidth=4)
+            plt3 = ax3.plot(dY.mean(axis=1), color='red', linewidth=4) 
+            plt4 = ax4.plot(dZ.mean(axis=1), color='red', linewidth=4)
 
             ax2.yaxis.tick_right()
             ax2.yaxis.set_label_position("right")
