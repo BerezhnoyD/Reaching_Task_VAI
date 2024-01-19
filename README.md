@@ -24,7 +24,8 @@ All the schematics, 3D models and assembly instructions are provided in this rep
 ![alt text](https://github.com/BerezhnoyD/Reaching_Task_VAI/blob/main/Slide3.PNG)
 In addition to the hardware part, we provide the complementary software data analysis pipeline which can be performed off-line with the acquired videos. Python package for the 3d trajectory reconstruction and kinematic analysis is organized in classes and modules implemented in a series of Jupyter Notebooks and based on the state-of-the-art solutions for the markerless pose estimation as well as original code
  - DeepLabCut (https://github.com/DeepLabCut/DeepLabCut) and 
- - Anipose Lib (https://github.com/lambdaloop/aniposelib). 
+ - Anipose Lib (https://github.com/lambdaloop/aniposelib).
+ 
 The pipeline guides the user through the number of steps to extract the parts from the video, track and triangulate the points of interest (paw, fingers), cluster the reaches, visualize and compare basic kinematic parameters for different reaching categories. User has the ability to export the final data on the kinematics (scalars for each reach) and reaching timestamps as a *.h5/.csv table for further analysis or synchronization with his own pipeline.
 
 
