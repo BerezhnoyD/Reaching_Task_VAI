@@ -1,4 +1,6 @@
 # ReachOut platform
+[![DOI](https://zenodo.org/badge/517810120.svg)](https://zenodo.org/doi/10.5281/zenodo.7383917)
+
 ![alt text](https://github.com/BerezhnoyD/Reaching_Task_VAI/blob/main/reachout.gif)
 
 The following project describes the design, fabrication, assembly and use case of the open-source hardware platform
