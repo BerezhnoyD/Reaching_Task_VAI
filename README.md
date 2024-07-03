@@ -32,8 +32,8 @@ ___
 
 ## Installation
 ***ReachOut*** pipeline can be used with the **behavioral box** to analyze reaching kinematics or as a **standalone application** for kinematic
-analysis for the action of your choice (walking, whisker movement, you name it) in your project with certain adaptations. In both cases you
-will need to install some software components on your recording/analysis computer. We split the scripts used to two toolboxes in the repository.
+analysis for the action of your choice (walking, whisker movement, you name it) with certain adaptations. In both cases you
+will need to install some software components on your recording/analysis computer. We split the scripts used to two toolboxes with different purpose.
 
 
 ### Recording toolbox
