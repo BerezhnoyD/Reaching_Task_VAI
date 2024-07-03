@@ -1,0 +1,21 @@
+title: ReachOut kinematic analysis
+description: Docs for the ReachOut platform and kinematic analysis pipeline
+theme: just-the-docs
+
+url: https://ReachOutKinematics.github.io
+
+#logo: "./images/icon.PNG"
+
+#####################################
+# --- Footer social media links --- #
+#####################################
+
+# Select the social network links that you want to show in the footer.
+# You can change the order that they show up on the page by changing the order here.
+# Uncomment the links you want to show and add your information to each one.
+social-network-links:
+  email: "berezhnoy.daniil@gmail.com"
+  rss: true  # remove this line if you don't want to show an RSS link at the bottom
+  github: BerezhnoyD
+  medium: berezhnoy.daniil
+  linkedin: linkedin.com/in/daniil-berezhnoy-a4039844

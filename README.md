@@ -1,7 +1,7 @@
 # ReachOut platform
 [![DOI](https://zenodo.org/badge/517810120.svg)](https://zenodo.org/doi/10.5281/zenodo.7383917)
 
-![alt text](https://github.com/BerezhnoyD/Reaching_Task_VAI/blob/main/reachout.gif)
+[<img src="docs/images/icon.png">]
 
 The following project describes the design, fabrication, assembly and use case of the open-source hardware platform
 for mice reach-to-grasp task training and fine motor skill video analysis. We present the behavioral platform - 
@@ -14,43 +14,56 @@ This tracking data (performed by DLC networks) can be analyzed further to extrac
 (speed, acceleration, jerk, accuracy) and different moments of the reach (start, peak, end) 
 to use them as behavioral keypoints (ex. peri-event analysis).
 
-Hardware used in the design of the platform, aside from the high-speed FLIR camera, 
-consists of readily available open-source components that can be acquired relatively 
-cheap or fabricated with the use of stereolithography 3D printer. Software is written in Python and organized in multiple Jupyter Notebooks.
-
-### Hardware overview
-![alt text](https://github.com/BerezhnoyD/Reaching_Task_VAI/blob/main/Slide2.PNG)
-All the schematics, 3D models and assembly instructions are provided in this repository. The assembled box is programmed with Arduino IDE for its use as a standalone device for automated/semi-automated animal training and behavioral data acquisition. The reaching box can log basic behavioral data (touch/beam sensors) and is designed to be connected to external devices to trigger in vivo imaging, optogenetic stimulation etc. It can stream the synchro signal from the behavioral events recorded by the onboard sensors with millisecond resolution, which makes it ideally fitted for synchronized behavioral-neurophysiology experiments. With the use of multiple mirrors, the system can acquire multiple close-up views for 3d trajectory reconstruction (triangulation) of the reach-to-grasp movement with a single high-speed FLIR camera when connected to the desktop PC. The output of the system is a behavioral video of the reaching movements throughout the learning session along with the tsv table of the synchronized data from Arduino.
-
-### Software overview
-![alt text](https://github.com/BerezhnoyD/Reaching_Task_VAI/blob/main/Slide3.PNG)
-In addition to the hardware part, we provide the complementary software data analysis pipeline which can be performed off-line with the acquired videos. Python package for the 3d trajectory reconstruction and kinematic analysis is organized in classes and modules implemented in a series of Jupyter Notebooks and based on the state-of-the-art solutions for the markerless pose estimation as well as original code
- - DeepLabCut (https://github.com/DeepLabCut/DeepLabCut) and 
- - Anipose Lib (https://github.com/lambdaloop/aniposelib).
- 
-The pipeline guides the user through the number of steps to extract the parts from the video, track and triangulate the points of interest (paw, fingers), cluster the reaches, visualize and compare basic kinematic parameters for different reaching categories. User has the ability to export the final data on the kinematics (scalars for each reach) and reaching timestamps as a *.h5/.csv table for further analysis or synchronization with his own pipeline.
-
+This repository is accompanying the STARs protocol article describing the fabrication and use of the setup
+[Open-source platform for kinematic analysis of mouse forelimb movement](https://star-protocols.cell.com/protocols/3539)
+For even more details on installation and use of the Software/Hardware platform visit the 
+[Docs Website]
 
 The repository contains all the materials to build the mouse reaching task and analyze the data acquired with this task
-- Bill of materials to build the reaching box
-- 3D models for the components of the box
-- Schematics for the reaching box Arduino-based controller
-- Scripts to run the video recording from the FLIR Camera and logging the data from Arduino
-- Scripts for the full analysis dataflow: detecting body parts with DLC and getting the reaching trajectories
+- *Schematics and blueprints* to assemble the components (**/Article Supplements/**)
+- *3D models* for the components of the box (**/ReachingBox_3D_Model/**)
+- *Scripts to run the video recording* from the FLIR Camera and logging the data from Arduino (**/Recording toolbox/**)
+- *Scripts for the full analysis* dataflow: detecting body parts with DLC and getting the reaching trajectories (**/Analysis toolbox/**)
+
+___
 
 ## Installation
+***ReachOut*** pipeline can be used with the *behavioral box* to analyze reaching kinematics or as a *standalone application* for kinematic
+analysis for the action of your choice (walking, whisker movement, you name it) in your project with certain adaptations. In both cases you
+will need to install some software components on your recording/analysis computer. We split the scripts used to two toolboxes in the repository.
+
+
 ### Recording toolbox
 The recording toolbox contains two parts: 
-- one on the Arduino side (script should be uploaded to the microcontroller with the use of Arduino IDE)
-- and one on the PC side. This one is just the snippet to record from the FLIR camera and simultaneously record from Arduino.
-The second part is taken with minor changes from the PySpin repository, so you should follow the installation instructions listed there
-(https://github.com/neurojak/pySpinCapture)
+- one on the *Arduino* side (Choose one script from */Arduino/* folder of the repository and uploaded to the microcontroller with the use of *Arduino IDE*). 
+- and one on the *PC* side. This Python CLI program is used to record simultaneously from the FLIR camera and from Arduino. 
+There are two different programs that can be copies from */FLIR_CPU/* folder of the repository. This part is taken with minor changes from the [PySpin repository], so you should follow the additional instructions listed there. 
+We also provide installation instructions on our [Docs Website].
 
 
 ### Analysis toolbox
-The analysis toolbox is dependent on certain python libraries and programs (DEEPLABCUT, ANIPOSE) and Jupyter Notebook.
+All the code for analysis toolbox is compiled in the /2D pipeline/ folder. To run different steps of the analysis just run
+one of the *ReachOut Notebooks* [^1].
+Analysis toolbox is dependent on different Python libraries (ex. DEEPLABCUT, ANIPOSE) and Jupyter Notebook [^2].
 DEEPLABCUT (https://github.com/DeepLabCut/DeepLabCut)
 ANIPOSE (https://github.com/lambdaloop/anipose)
 
-To make it easier for installation all the dependencies are included in the updated *DEEPLABCUT.yml conda environment file.
+To make it easier for installation all the dependencies are included in the included **DEEPLABCUT.yml** conda environment file [^3].
 
+
+___
+
+[^1]: Small library of classes and functions needed to run the kinematic analysis is contained in the *.py files in the same directory and you imported in Notebooks themselves.
+[^2]: If you just want to use the Analysis and Visualization notebook on your analyzed videos it should work even in the base Anaconda environment without DLC/Anipose installed. 
+[^3]: There are known copmatibility problems on some PCs with the installation of new DLC version that we are trying to fix. Please contact us with any problems you experience.
+___
+### Troubleshooting
+
+Feel free to read our [Docs Website] and if you still have questions submit a request here or contact the developer directly. 
+Contribute, star this repository if you use it and submit an issue for any questions. Let's make it better together.
+
+___
+
+[<img src="docs/images/icon.png">]: (https://berezhnoyd.github.io/ReachOut.github.io/)
+[Docs Website]: (https://berezhnoyd.github.io/ReachOut.github.io/)
+[PySpin repository]: (https://github.com/neurojak/pySpinCapture)
