@@ -2,7 +2,9 @@
 [![DOI](https://zenodo.org/badge/517810120.svg)](https://zenodo.org/doi/10.5281/zenodo.7383917)
 
 
-<div style="text-align: center"><img src="docs/images/icon.png" alt="drawing" width="300" height="300"/></div>
+<p align="center">
+<img src="docs/images/icon.png" alt="drawing" width="300" height="300"/>
+</p>
 
 The following project describes the design, fabrication, assembly and use case of the open-source hardware platform for mice reach-to-grasp task training and fine motor skill video analysis. We present the behavioral platform - automated mouse Reaching Box that was designed to be 3D printed and hence easily reproducible. The device is used to train animals to perform reach-to-grasp dexterity task: approach the proximal part of the reaching box and reach for single sugar pellets disposed by motorized feeder disk located in front of the narrow slit. 
 This task is used for studying planning and execution of fine motor skills requiring cortical control of the forepaw and finger movement. Behavioral apparatus allows to record the video and track the forepaw and fingers during the reaching movement. Tracking data (performed by DLC networks) can be analyzed further to extract different kinematic parameters (speed, acceleration, jerk, accuracy) and different moments of the reach (start, peak, end) to use them as behavioral keypoints (ex. peri-event analysis).
@@ -14,7 +16,9 @@ This repository is accompanying the STARs protocol article describing the fabric
 For even more details on installation and use of the Software/Hardware platform visit the 
 [Docs Website]
 
-The repository contains all the materials to build the mouse reaching task and analyze the data acquired with this task
+(https://berezhnoyd.github.io/Reaching_Task_VAI/)
+
+The website contains all the documentation and repository contains all the materials to build the mouse reaching task and analyze the data acquired with this task
 - *Schematics and blueprints* to assemble the components 
 	(**/Article Supplements/**)
 - *3D models* for the components of the box 

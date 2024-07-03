@@ -6,7 +6,7 @@ description: "Documentation for the ReachOut project"
 permalink: /
 ---
 
-<div style="text-align: center"><img src="{{ site.baseurl }}/images/icon.png" alt="drawing" width="300" height="300"/></div>
+<div style="text-align: center"><img src="{{ site.baseurl }}/docs/images/icon.png" alt="drawing" width="300" height="300"/></div>
 
 
 ReachOut project is an open-source hardware-software platform for analyzing reaching movement kinematics in mice. 
