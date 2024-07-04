@@ -2,7 +2,8 @@ title: ReachOut kinematic analysis
 description: Docs for the ReachOut platform and kinematic analysis pipeline
 theme: just-the-docs
 
-url: https://ReachOutKinematics.github.io
+url: ""
+baseurl: ""
 
 #logo: "./images/icon.PNG"
 
