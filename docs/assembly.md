@@ -13,7 +13,7 @@ Current protocol is performed with the use of in-house manufactured behavioral b
 - Arduino-based controller autonomously performing the programmed experimental protocol (written in C++), interfacing with the touch sensors in the box and providing the master clock signal;
 - Single FLIR 1.6MP High-Speed camera (Model: Blackfly S BFS-U3-16S2M) with a system of mirrors, saving the video stream on the computer with the use of a Python interface.
 
-![alt text]({{ site.baseurl }}/images/Slide2.PNG)
+![alt text]({{ site.baseurl }}/docs/images/Slide2.PNG)
 
 Hence, there are **4 main components that you will need** to assemble the behavioral box: 
 
@@ -26,7 +26,7 @@ All of them can be purchased or manufactured in house with the use of 3d printer
 
 ## 3D printing the parts
 
-![Image]({{ site.baseurl }}/images/3Dmodels.png)  
+![Image]({{ site.baseurl }}/docs/images/3Dmodels.png)  
 
 *.stl* files for printing the components are provided in [this folder] of the repository. 
 Dimensions for the parts and schematics is provided in [supplementary materials] of the repository and [the article].
