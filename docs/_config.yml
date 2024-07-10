@@ -1,6 +1,7 @@
 title: ReachOut kinematic analysis
 description: Docs for the ReachOut platform and kinematic analysis pipeline
-theme: just-the-docs
+#theme: just-the-docs
+remote_theme: just-the-docs/just-the-docs
 
 url: https://berezhnoyd.github.io/Reaching_Task_VAI/
 baseurl: ""
