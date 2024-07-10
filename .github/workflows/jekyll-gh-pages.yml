@@ -46,7 +46,6 @@ jobs:
         with:
           source: ./docs/
           destination: ./docs/_site
-        # Outputs to the './_site' directory by default
         env:
           JEKYLL_ENV: ${{ github.workspace }}/docs/Gemfile
       - name: Upload artifact
