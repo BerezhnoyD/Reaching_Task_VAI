@@ -44,11 +44,10 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
       - name: Build with Jekyll
-        # uses: actions/jekyll-build-pages@v1
+        uses: actions/jekyll-build-pages@v1
         # Outputs to the './_site' directory by default
-        run: bundle exec jekyll build -s docs -d _site --config docs/_config.yml
-        #env:
-        #  JEKYLL_ENV: ${{ github.workspace }}/docs/Gemfile
+        env:
+          JEKYLL_ENV: ${{ github.workspace }}/docs/Gemfile
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v3
