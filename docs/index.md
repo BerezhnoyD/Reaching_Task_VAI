@@ -6,7 +6,7 @@ description: "Documentation for the ReachOut project"
 permalink: /
 ---
 
-<div style="text-align: center"><img src="{{ site.baseurl }}/docs/images/icon.png" alt="drawing" width="300" height="300"/></div>
+<div style="text-align: center"><img src="{{ site.baseurl }}/icon.png" alt="drawing" width="300" height="300"/></div>
 
 
 ReachOut project is an open-source hardware-software platform for analyzing reaching movement kinematics in mice. 
@@ -35,7 +35,7 @@ Did you know that mice are pretty good at using their forepaws? Well, probably y
 and can skip the [Science background](#science-background) section and go straight to [Project overview](#project-overview)
 or to one of the sections provided in the docs (*Navigation on the left sidebar*).
 
-<img src="{{ site.baseurl }}/docs/images/reachout.gif" alt="drawing" width="600" height="600"/>
+<img src="{{ site.baseurl }}/reachout.gif" alt="drawing" width="600" height="600"/>
 
 But how to dissect and study this complex movement? 
 We tried to provide the comprehensive solution to this problem that can be
