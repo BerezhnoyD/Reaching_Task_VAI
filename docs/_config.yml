@@ -1,10 +1,8 @@
 title: ReachOut kinematic analysis
 description: Docs for the ReachOut platform and kinematic analysis pipeline
-#theme: just-the-docs
-remote_theme: just-the-docs/just-the-docs
+theme: just-the-docs
 
-url: https://berezhnoyd.github.io/Reaching_Task_VAI/
-baseurl: ""
+url: https://ReachOutKinematics.github.io
 
 #logo: "./images/icon.PNG"
 
@@ -17,7 +15,6 @@ baseurl: ""
 # Uncomment the links you want to show and add your information to each one.
 social-network-links:
   email: "berezhnoy.daniil@gmail.com"
-  rss: true  # remove this line if you don't want to show an RSS link at the bottom
   github: BerezhnoyD
   medium: berezhnoy.daniil
   linkedin: linkedin.com/in/daniil-berezhnoy-a4039844

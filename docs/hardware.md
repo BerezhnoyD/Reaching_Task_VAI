@@ -12,7 +12,7 @@ Here is the design of the whole setup, everything on the box side is controlled 
 and the experiment can be performed event without the the computer, but you will need **the PC** to 
 save the streaming data from the camera and the box sensors.  
 
-<img src="{{ site.baseurl }}/docs/images/Overview.PNG" alt="drawing" width="600" height="600"/>
+<img src="{{ site.baseurl }}/images/Overview.PNG" alt="drawing" width="600" height="600"/>
 
 
 The **control** of the behavioral protocol, all the **stimuli** and **reinforcement** (food pellets) presentation, 
@@ -22,7 +22,7 @@ you just need to put together (no extensive knowledge of electronics needed).
 
 ## Main circuit components
 
-![Image]({{ site.baseurl }}/docs/images/circuit.PNG)
+![Image]({{ site.baseurl }}/images/circuit.PNG)
 
 The same schematics can be found in the Repository and [STAR Protocols] article, supplementary materials.
 The main components of the system are the **Arduino Nano** controller autonomously performing the programmed experimental protocol (written in C++ using Arduino IDE) 
