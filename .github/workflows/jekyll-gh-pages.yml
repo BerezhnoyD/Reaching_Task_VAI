@@ -42,7 +42,7 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
       - name: Bundle workfolder
-        run: bundle config set --local path ./docs/
+        run: bundle config set --local path '${{ github.workspace }}/docs/'
       - name: Build with Jekyll
         #uses: actions/jekyll-build-pages@v1
         #with:
