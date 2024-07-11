@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Software Installation
 parent: Software part
 nav_order: 5

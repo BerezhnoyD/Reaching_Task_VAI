@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Hardware part
 nav_order: 3
 description: "This is a description of ReachOut behavioral box electronics"

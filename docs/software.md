@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Software part
 nav_order: 4
 description: "This is a description of ReachOut software"

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Behavioral apparatus
 nav_order: 2
 description: "This is a description of ReachOut behavioral box"
