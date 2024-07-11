@@ -41,8 +41,8 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
-      - name: Bundle install
-        run: gem install bundler:2.5.9
+      #- name: Bundle install
+      #  run: gem install bundler:2.5.9
       #- name: Bundle workfolder
       #  run: bundle config set --local path ./docs/ 
       - name: Build with Jekyll
