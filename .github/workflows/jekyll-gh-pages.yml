@@ -48,7 +48,7 @@ jobs:
         #with:
         #  source: ./docs/
         #  destination: ./docs/_site/
-        run: bundle exec jekyll build
+        run: bundle exec jekyll build --source ./docs/ --destination ./docs/_site/
         env:
           JEKYLL_ENV: ${{ github.workspace }}/docs/Gemfile
       - name: Upload artifact
