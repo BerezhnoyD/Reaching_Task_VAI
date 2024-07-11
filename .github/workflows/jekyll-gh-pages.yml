@@ -37,12 +37,12 @@ jobs:
           ruby-version: 3.1 # Not needed with a .ruby-version file
           bundler-cache: false # runs 'bundle install' and caches installed gems automatically
           cache-version: 0 # Increment this number if you need to re-download cached gems
-          working-directory: '${{ github.workspace }}/docs'
+          working-directory: '${{ github.workspace }}/docs/'
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
-      - name: Bundle workfolder
-        run: bundle config set --local path ./docs/
+      #- name: Bundle workfolder
+      #  run: bundle config set --local path ./docs/
       - name: Build with Jekyll
         #uses: actions/jekyll-build-pages@v1
         #with:
