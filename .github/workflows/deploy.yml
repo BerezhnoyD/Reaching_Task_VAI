@@ -35,7 +35,7 @@ jobs:
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./_site
+          path: ./docs/_site
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v3
