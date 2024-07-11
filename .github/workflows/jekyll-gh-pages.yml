@@ -48,6 +48,7 @@ jobs:
         #with:
         #  source: ./docs/
         #  destination: ./docs/_site/
+        run: bundle config set --local path ./docs/ 
         run: bundle exec jekyll build --source ./docs/ --destination ./docs/_site/
         env:
           JEKYLL_ENV: ${{ github.workspace }}/docs/Gemfile
