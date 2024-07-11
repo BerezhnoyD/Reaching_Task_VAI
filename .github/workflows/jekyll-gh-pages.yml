@@ -50,7 +50,7 @@ jobs:
         #  destination: ./docs/_site/
         run: bundle exec jekyll build --source ./docs/ --destination ./docs/_site/
         env:
-          JEKYLL_ENV: ${{ github.workspace }}/docs/Gemfile
+          JEKYLL_ENV: ${{ github.workspace }}/docs
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v3
