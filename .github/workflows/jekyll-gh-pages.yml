@@ -41,16 +41,16 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
-      - name: Bundle workfolder
-        run: bundle config set --local path ./vendor/bundle
+      #- name: Bundle workfolder
+      #  run: bundle config set --local path ./vendor/bundle
       - name: Build with Jekyll
         #uses: actions/jekyll-build-pages@v1
         #with:
         #  source: ./docs/
         #  destination: ./docs/_site/
-        run: bundle exec jekyll build --source ./docs/ --destination ./docs/_site/
+        run: bundle exec env jekyll build --source ./docs/ --destination ./docs/_site/
         env:
-          JEKYLL_ENV: ${{ github.workspace }}/docs/Gemfile
+          JEKYLL_ENV: ${{ github.workspace }}/docs/Gemfile.lock
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v3
