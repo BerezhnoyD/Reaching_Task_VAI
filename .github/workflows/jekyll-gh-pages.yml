@@ -41,14 +41,15 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
-      - name: Bundle resolve
+      - name: Bundle install
         run: gem install bundler:2.5.9
+      - name: Bundle workfolder
+        run: bundle config set --local path ./docs/ 
       - name: Build with Jekyll
         #uses: actions/jekyll-build-pages@v1
         #with:
         #  source: ./docs/
         #  destination: ./docs/_site/
-        run: bundle config set --local path ./docs/ 
         run: bundle exec jekyll build --source ./docs/ --destination ./docs/_site/
         env:
           JEKYLL_ENV: ${{ github.workspace }}/docs/Gemfile
