@@ -44,10 +44,11 @@ jobs:
       - name: Bundle resolve
         run: gem install bundler:2.5.9
       - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./docs/
-          destination: ./docs/_site/
+        #uses: actions/jekyll-build-pages@v1
+        #with:
+        #  source: ./docs/
+        #  destination: ./docs/_site/
+        run: bundle exec jekyll build
         env:
           JEKYLL_ENV: ${{ github.workspace }}/docs/Gemfile
       - name: Upload artifact
