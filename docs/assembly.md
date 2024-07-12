@@ -13,7 +13,7 @@ Current protocol is performed with the use of in-house manufactured behavioral b
 - Arduino-based controller autonomously performing the programmed experimental protocol (written in C++), interfacing with the touch sensors in the box and providing the master clock signal;
 - Single FLIR 1.6MP High-Speed camera (Model: Blackfly S BFS-U3-16S2M) with a system of mirrors, saving the video stream on the computer with the use of a Python interface.
 
-![alt text]({{ site.baseurl }}/images/Slide2.PNG)
+![Image]({{ site.baseurl }}/images/Slide2.PNG)
 
 Hence, there are **4 main components that you will need** to assemble the behavioral box: 
 

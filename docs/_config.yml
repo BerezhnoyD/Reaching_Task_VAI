@@ -4,7 +4,7 @@ description: Docs for the ReachOut platform and kinematic analysis pipeline
 theme: just-the-docs
 
 url: 'https://berezhnoyd.github.io/'
-baseurl: 'Reaching_Task_VAI/'
+baseurl: 'Reaching_Task_VAI/docs/'
 
 #logo: "./images/icon.PNG"
 

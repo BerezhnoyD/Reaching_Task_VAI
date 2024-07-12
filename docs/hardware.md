@@ -22,8 +22,7 @@ you just need to put together (no extensive knowledge of electronics needed).
 
 ## Main circuit components
 
-![Image]({{ site.baseurl }}/assets/circuit.PNG)  
-![alt text]({{ site.baseurl }}/images/Slide2.PNG)
+![Image]({{ site.baseurl }}/images/Board.PNG)  
 
 The same schematics can be found in the Repository and [STAR Protocols] article, supplementary materials.
 The main components of the system are the **Arduino Nano** controller autonomously performing the programmed experimental protocol (written in C++ using Arduino IDE) 
