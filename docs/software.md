@@ -10,7 +10,7 @@ has_children: true
 
 # Triangulation and analysis of behavioral videos
 
-<img src="{{ site.baseurl }}/images/reconstruction.png" alt="drawing" width="400" height="400"/>
+<img src="{{ site.baseurl }}/images/CameraView.png" alt="drawing" width="400" height="400"/>
 
 In addition to the hardware part, we provide the complementary software data analysis pipeline which can be performed off-line with the acquired videos. Python package for the 3d trajectory reconstruction and kinematic analysis is organized in classes and modules implemented in a series of Jupyter Notebooks and based on the state-of-the-art solutions for the markerless pose estimation as well as original code
  - [DeepLabCut] is used for intial tracking using pretrained ResNet architecture (& training it). 
@@ -23,7 +23,7 @@ ___
 
 The [ReachOut] pipeline can be used separately on your own videos and guides the user through the number of steps to extract the parts from the video, track and triangulate the points of interest (paw, fingers), cluster the reaches, visualize and compare basic kinematic parameters for different reaching categories. User has the ability to export the final data on the kinematics (scalars for each reach) and reaching timestamps as a *.h5/.csv table for further analysis or synchronization with his own pipeline.
 
-![alt text]({{ site.baseurl }}/images/Slide3.png)
+![alt text]({{ site.baseurl }}/images/Software.png)
 
 Analysis pipeline consists of extracting the parts from the video, 
 tracking and triangulating the points of interest (paw, fingers), clustering the reaches, 
