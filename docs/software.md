@@ -10,7 +10,7 @@ has_children: true
 
 # Triangulation and analysis of behavioral videos
 
-<img src="{{ site.baseurl }}/images/CameraView.PNG" alt="drawing" width="400" height="400"/>
+<img src="{{ site.baseurl }}/docs/images/reconstruction.PNG" alt="drawing" width="400" height="400"/>
 
 In addition to the hardware part, we provide the complementary software data analysis pipeline which can be performed off-line with the acquired videos. Python package for the 3d trajectory reconstruction and kinematic analysis is organized in classes and modules implemented in a series of Jupyter Notebooks and based on the state-of-the-art solutions for the markerless pose estimation as well as original code
  - [DeepLabCut] is used for intial tracking using pretrained ResNet architecture (& training it). 
@@ -23,7 +23,7 @@ ___
 
 The [ReachOut] pipeline can be used separately on your own videos and guides the user through the number of steps to extract the parts from the video, track and triangulate the points of interest (paw, fingers), cluster the reaches, visualize and compare basic kinematic parameters for different reaching categories. User has the ability to export the final data on the kinematics (scalars for each reach) and reaching timestamps as a *.h5/.csv table for further analysis or synchronization with his own pipeline.
 
-![Image]({{ site.baseurl }}/images/Slide3.png)
+![alt text]({{ site.baseurl }}/docs/images/Slide3.png)
 
 Analysis pipeline consists of extracting the parts from the video, 
 tracking and triangulating the points of interest (paw, fingers), clustering the reaches, 
@@ -56,7 +56,7 @@ The Notebooks are split by their function:
 - Updating the csv output from DeepLabCut with absolute position for our reference points
 - Using the code from Anipose lib and preprecorded calibration videos to triangulate the points - *specific for our setup with two mirrors*
 
-![Image]({{ site.baseurl }}/images/Slide4.png)
+![alt text]({{ site.baseurl }}/docs/images/Slide4.png)
 
 ***Here are the main steps as described in the Notebooks***
 
@@ -66,7 +66,7 @@ ___
 ### ReachOut - Tracking
 **Provides all the scripts to process the behavioral videos and get to the .csv file with ** 
 
-![Image]({{ site.baseurl }}/images/Notebook1.PNG)
+![alt text]({{ site.baseurl }}/docs/images/Notebook1.PNG)
 
 0. Cut the video from the FLIR camera into three parts - three different views of the reach
 > We are recording the videos of the reaching task using the single high speed widefield FLIR camera and multiple mirrors. 
@@ -105,7 +105,7 @@ ___
 ### ReachOut - Analysis
 **Provides multiple gui snippets to manually segment and annotate the results from DeepLabCut**
 
-![Image]({{ site.baseurl }}/images/Notebook2.PNG)
+![alt text]({{ site.baseurl }}/docs/images/Notebook2.PNG)
 
 - Manually scroll through DeepLabCut tracking coordinates, plot them and choose the segments for kinematic analysis (*reaches in our case*)
 - Load the selected parts of the trajectory and manually annotate them from watching the corresponding parts of the video (*we defined different reaching categories*)
@@ -117,7 +117,7 @@ ___
 
 Small video showing the workflow
 
-<iframe width="960" height="520" src="{{ site.baseurl }}/images/Step3.mp4" frameborder="0" allowfullscreen></iframe>
+<iframe width="960" height="520" src="{{ site.baseurl }}/docs/images/Step3.mp4" frameborder="0" allowfullscreen></iframe>
 
 
 {: .note }
@@ -130,7 +130,7 @@ time substituting Z-dimension in the 3D plot, that way you basically see the cha
 > use the GUI to rewatch the video fragments and manually assign the labels. As a result of this step you will have the _*scalars.h5_ file which is 
 > used in the vizualisation steps 5 and 6.
 
-<iframe width="960" height="520" src="{{ site.baseurl }}/images/Step4.mp4" frameborder="0" allowfullscreen></iframe>
+<iframe width="960" height="520" src="{{ site.baseurl }}/docs/images/Step4.mp4" frameborder="0" allowfullscreen></iframe>
 
 
 ___
@@ -139,7 +139,7 @@ ___
 ### ReachOut - Visualization
 **Provides the user with multiple ways to visualize the data and kinematic parameters**
 
-![Image]({{ site.baseurl }}/images/Notebook3.PNG)
+![alt text]({{ site.baseurl }}/docs/images/Notebook3.PNG)
 
 - Look at superimposed trajectories for the chosen category of action - *reaches in our case*
 - Look at the violin plots for different kinematic parameters for the chosen category of action
@@ -149,11 +149,11 @@ ___
 > This snippet shows all reaches in the chosen category as Timeseries for visual inspection and analysis. 
 > From the lists you can choose the category of reaches and the type of data to plot.
 
-![Image]({{ site.baseurl }}/images/Trajectories.PNG)
+![alt text]({{ site.baseurl }}/docs/images/Trajectories.PNG)
 
 6. Open the scalars.h5 file and make violin plots for the chosen parameters and reach categories  
 
-![Image]({{ site.baseurl }}/images/Scalars.PNG)
+![alt text]({{ site.baseurl }}/docs/images/Scalars.PNG)
 
 7. Open the scalars.h5 file and automatically cluster the reaches using one of the built in methods
 
