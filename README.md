@@ -16,7 +16,7 @@ This repository is accompanying the STARs protocol article describing the fabric
 For even more details on installation and use of the Software/Hardware platform visit the 
 [Docs Website]
 
-(https://berezhnoyd.github.io/Reaching_Task_VAI/)
+[![Button Shield]][Docs Website]
 
 The website contains all the documentation and repository contains all the materials to build the mouse reaching task and analyze the data acquired with this task
 - *Schematics and blueprints* to assemble the components 
@@ -66,6 +66,6 @@ Feel free to read our [Docs Website] and if you still have questions submit a re
 Contribute, star this repository if you use it and submit an issue for any questions. Let's make it better together.
 
 ___
-
+[Button Shield]: https://img.shields.io/badge/Go to Website!-37a779?style=for-the-badge
 [Docs Website]: https://berezhnoyd.github.io/Reaching_Task_VAI/
 [PySpin repository]: https://github.com/neurojak/pySpinCapture
