@@ -17,7 +17,9 @@ For even more details on installation and use of the Software/Hardware platform 
 [Docs Website]
 
 <br>
-[![Button Shield]][Docs Website]
+
+[Button Shield][Docs Website]
+
 <br>
 
 The website contains all the documentation and repository contains all the materials to build the mouse reaching task and analyze the data acquired with this task
