@@ -18,7 +18,7 @@ For even more details on installation and use of the Software/Hardware platform 
 
 <br>
 
-[![Button Shield]][Docs Website]
+[![berezhnoyd.github.io/Reaching_Task_VAI]][Docs Website]
 
 <br>
 
@@ -73,4 +73,4 @@ ___
 
 [Docs Website]: https://berezhnoyd.github.io/Reaching_Task_VAI/
 [PySpin repository]: https://github.com/neurojak/pySpinCapture
-[Button Shield]: https://img.shields.io/badge/Click_Me!-37a779?style=for-the-badge
+[berezhnoyd.github.io/Reaching_Task_VAI]: https://img.shields.io/badge/berezhnoyd.github.io-37a779?style=for-the-badge
