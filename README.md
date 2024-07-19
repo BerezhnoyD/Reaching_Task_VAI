@@ -18,7 +18,7 @@ For even more details on installation and use of the Software/Hardware platform 
 
 <br>
 
-[Button Shield][Docs Website]
+[![Button Shield]][Docs Website]
 
 <br>
 
