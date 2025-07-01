@@ -1,0 +1,71 @@
+    # Project definitions (do not edit)
+Task: Center_Mirror
+scorer: Daniil
+date: Jul24
+multianimalproject: false
+identity:
+
+    # Project path (change when moving around)
+project_path: \\pn.vai.org\projects_primary\chu\Daniil Berezhnoi\Python programs\July
+  Networks 2023\RightHanded\Center_Mirror-Daniil-2023-07-24
+
+    # Annotation data set configuration (and individual video cropping parameters)
+video_sets:
+  ? C:\Users\daniil.berezhnoi.VAI\Videos\Tracking Networks\DEEPLABCUT\July Networks
+    2023\Right_handed\Center_Mirror-Daniil-2023-07-24\videos\mj_15_51_51_ncb1131-camB.mp4
+  : crop: 0, 824, 0, 408
+  ? C:\Users\daniil.berezhnoi.VAI\Videos\Tracking Networks\DEEPLABCUT\July Networks
+    2023\Right_handed\Center_Mirror-Daniil-2023-07-24\videos\mj_17_41_11_ncb1280-R-camB.mp4
+  : crop: 0, 824, 0, 408
+bodyparts:
+- finger1
+- finger2
+- finger3
+- finger4
+- paw
+- wrist_joint
+
+start: 0
+stop: 1
+numframes2pick: 50
+
+    # Plotting configuration
+skeleton:
+- - finger1
+  - paw
+- - finger2
+  - paw
+- - finger3
+  - paw
+- - finger4
+  - paw
+- - paw
+  - wrist_joint
+skeleton_color: black
+pcutoff: 0.6
+dotsize: 2
+alphavalue: 0.7
+colormap: rainbow
+
+    # Training,Evaluation and Analysis configuration
+TrainingFraction:
+- 0.95
+iteration: 0
+default_net_type: resnet_50
+default_augmenter: default
+snapshotindex: -1
+batch_size: 8
+
+    # Cropping Parameters (for analysis and outlier frame detection)
+cropping: false
+    #if cropping is true for analysis, then set the values here:
+x1: 0
+x2: 640
+y1: 277
+y2: 624
+
+    # Refinement configuration (parameters from annotation dataset configuration also relevant in this stage)
+corner2move2:
+- 50
+- 50
+move2corner: true

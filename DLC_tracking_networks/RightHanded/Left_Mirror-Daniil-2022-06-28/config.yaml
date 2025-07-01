@@ -1,0 +1,74 @@
+    # Project definitions (do not edit)
+Task: Left_Mirror
+scorer: Daniil
+date: Jun28
+multianimalproject: false
+identity:
+
+    # Project path (change when moving around)
+project_path: \\pn.vai.org\projects_primary\chu\Daniil Berezhnoi\Python programs\July
+  Networks 2023\RightHanded\Left_Mirror-Daniil-2022-06-28
+
+    # Annotation data set configuration (and individual video cropping parameters)
+video_sets:
+  C:\Users\Daniil\Desktop\VAI\camera-camA.mp4:
+    crop: 0, 300, 0, 408
+  C:\Users\Daniil\Desktop\VAI\videos\camera-camA.mp4:
+    crop: 0, 300, 0, 408
+  ? \\pn.vai.org\projects_primary\chu\Hiba Douja Chehade\Behavior\Reach task\10wo
+    training\10wo timepoint video analysis\mj_15_51_51_ncb1131-camA.mp4
+  : crop: 0, 300, 0, 408
+  ? \\pn.vai.org\projects_primary\chu\Hiba Douja Chehade\Behavior\Reach task\10wo
+    training\10wo timepoint video analysis\mj_17_41_11_ncb1280-R-camA.mp4
+  : crop: 0, 300, 0, 408
+bodyparts:
+- finger1
+- finger2
+- finger3
+- finger4
+- paw
+- wrist_joint
+start: 0
+stop: 1
+numframes2pick: 50
+
+    # Plotting configuration
+skeleton:
+- - finger1
+  - paw
+- - finger2
+  - paw
+- - finger3
+  - paw
+- - finger4
+  - paw
+- - paw
+  - wrist_joint
+skeleton_color: black
+pcutoff: 0.6
+dotsize: 2
+alphavalue: 0.7
+colormap: rainbow
+
+    # Training,Evaluation and Analysis configuration
+TrainingFraction:
+- 0.90
+iteration: 0
+default_net_type: resnet_50
+default_augmenter: default
+snapshotindex: -1
+batch_size: 8
+
+    # Cropping Parameters (for analysis and outlier frame detection)
+cropping: false
+    #if cropping is true for analysis, then set the values here:
+x1: 0
+x2: 640
+y1: 277
+y2: 624
+
+    # Refinement configuration (parameters from annotation dataset configuration also relevant in this stage)
+corner2move2:
+- 50
+- 50
+move2corner: true

@@ -1,0 +1,90 @@
+    # Project definitions (do not edit)
+Task: Right_mirror
+scorer: Daniil
+date: Sep2
+multianimalproject: false
+identity:
+
+    # Project path (change when moving around)
+project_path: \\pn.vai.org\projects_primary\chu\Daniil Berezhnoi\Python programs\July
+  Networks 2023\LeftHanded\Right_mirror-Daniil-2022-09-02
+
+    # Annotation data set configuration (and individual video cropping parameters)
+video_sets:
+  \\pn.vai.org\projects_primary\chu\Hiba Douja Chehade\Behavior\Trial Batch 7\DLC_ready\mj_15_04_17_ncb1042-camC.mp4:
+    crop: 0, 300, 0, 408
+  \\pn.vai.org\projects_primary\chu\Hiba Douja Chehade\Behavior\Trial Batch 7\DLC_ready\mj_15_54_57_ncb1043-camC.mp4:
+    crop: 0, 300, 0, 408
+  \\pn.vai.org\projects_primary\chu\Hiba Douja Chehade\Behavior\Trial Batch 7\DLC_ready\mj_16_19_21_ncb1045-camC.mp4:
+    crop: 0, 300, 0, 408
+  \\pn.vai.org\projects_primary\chu\Hiba Douja Chehade\Behavior\Trial Batch 7\DLC_ready\mj_16_53_37_ncb1046-camC.mp4:
+    crop: 0, 300, 0, 408
+  \\pn.vai.org\projects_primary\chu\Hiba Douja Chehade\Behavior\Trial Batch 7\DLC_ready\mj_17_18_33_ncb1047-camC.mp4:
+    crop: 0, 300, 0, 408
+  \\pn.vai.org\projects_primary\chu\Hiba Douja Chehade\Behavior\Trial Batch 7\DLC_ready\mj_17_46_37_ncb1051-camC.mp4:
+    crop: 0, 300, 0, 408
+  \\pn.vai.org\projects_primary\chu\Hiba Douja Chehade\Behavior\Trial Batch 7\DLC_ready\mj_18_12_46_ncb1052-camC.mp4:
+    crop: 0, 300, 0, 408
+  ? C:\Users\daniil.berezhnoi.VAI\Videos\Tracking Networks\DEEPLABCUT\July Networks
+    2023\Left_handed\Right_mirror-Daniil-2022-09-02\videos\mj_15_51_02_ncb1283-L-camC.mp4
+  : crop: 0, 300, 0, 408
+  ? C:\Users\daniil.berezhnoi.VAI\Videos\Tracking Networks\DEEPLABCUT\July Networks
+    2023\Left_handed\Right_mirror-Daniil-2022-09-02\videos\mj_16_27_08_ncb1403-camC.mp4
+  : crop: 0, 300, 0, 408
+  ? C:\Users\daniil.berezhnoi.VAI\Videos\Tracking Networks\DEEPLABCUT\July Networks
+    2023\Left_handed\Right_mirror-Daniil-2022-09-02\videos\mj_16_48_49_ncb1278-L-camC.mp4
+  : crop: 0, 300, 0, 408
+  ? C:\Users\daniil.berezhnoi.VAI\Videos\Tracking Networks\DEEPLABCUT\July Networks
+    2023\Left_handed\Right_mirror-Daniil-2022-09-02\videos\mj_17_39_29_ncb1398-L-camC.mp4
+  : crop: 0, 300, 0, 408
+bodyparts:
+- finger1
+- finger2
+- finger3
+- finger4
+- paw
+- wrist_joint
+start: 0
+stop: 1
+numframes2pick: 50
+
+    # Plotting configuration
+skeleton:
+- - finger1
+  - paw
+- - finger2
+  - paw
+- - finger3
+  - paw
+- - finger4
+  - paw
+- - paw
+  - wrist_joint
+skeleton_color: black
+pcutoff: 0.6
+dotsize: 2
+alphavalue: 0.7
+colormap: rainbow
+
+    # Training,Evaluation and Analysis configuration
+TrainingFraction:
+- 0.95
+iteration: 1
+default_net_type: resnet_50
+default_augmenter: default
+snapshotindex: -1
+batch_size: 8
+
+    # Cropping Parameters (for analysis and outlier frame detection)
+cropping: false
+    #if cropping is true for analysis, then set the values here:
+x1: 0
+x2: 640
+y1: 277
+y2: 624
+
+    # Refinement configuration (parameters from annotation dataset configuration also relevant in this stage)
+corner2move2:
+- 50
+- 50
+move2corner: true
