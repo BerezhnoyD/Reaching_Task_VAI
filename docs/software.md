@@ -64,7 +64,7 @@ ___
 
 
 ### ReachOut - Tracking
-**Provides all the scripts to process the behavioral videos and get to the .csv file with ** 
+**Provides all the scripts to process the behavioral videos and get to the .csv file with** 
 
 ![alt text]({{ site.baseurl }}/images/Notebook1.png)
 
