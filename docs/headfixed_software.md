@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Headfixed software
-parent: Headfixed setup
+parent: Bonus Headfixed setup
 nav_order: 8
 description: "This is a description of software and testing for headfixed setup"
 ---

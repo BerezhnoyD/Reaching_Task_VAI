@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Headfixed hardware
-parent: Headfixed setup
+parent: Bonus Headfixed setup
 nav_order: 7
 description: "This is a description of hardware for headfixed setup"
 ---
