@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Bonus: Headfixed setup
+title: Bonus Headfixed setup
 nav_order: 6
 description: "This is a description of the HeadFixed Reaching setup (ReachOut v.2.0)"
 has_children: true
